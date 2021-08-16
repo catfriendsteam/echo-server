@@ -4,7 +4,7 @@ version: '3'
 services:
   nginx:
     container_name: echo-nginx
-    build: ./nginx
+    image: mynginx:0.0.1
     links:
       - app-1:app-1
     ports:
