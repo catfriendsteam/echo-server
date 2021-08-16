@@ -4,14 +4,15 @@ version: '3'
 services:
   nginx:
     container_name: echo-nginx
-    image: mynginx:0.0.1
+    image: mynginx:${nginx}
     links:
       - app-1:app-1
+      - app-2:app-2
+      - app-3:app-3
+      - app-4:app-4
     ports:
       - 80:80
       - 443:443
-    depends_on:
-      - app-1
     volumes:
       - /etc/ssl/echo:/etc/nginx/certs
     networks:
@@ -19,30 +20,22 @@ services:
 
   app-1:
     container_name: echo-1
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: echo-server:${server}
     networks:
       - echo_net
   app-2:
     container_name: echo-2
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: echo-server:${server}
     networks:
       - echo_net
   app-3:
     container_name: echo-3
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: echo-server:${server}
     networks:
       - echo_net
   app-4:
     container_name: echo-4
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: echo-server:${server}
     networks:
       - echo_net
 
