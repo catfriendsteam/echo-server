@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: true}));
 /**
  * @path http://localhost:3000/ 경로
  */
-app.get("/", (req, res) => {
+app.get("/echo", (req, res) => {
     res.send({success:true})
 });
 
