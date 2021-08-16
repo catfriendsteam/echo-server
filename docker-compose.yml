@@ -13,7 +13,7 @@ services:
     depends_on:
       - app-1
     volumes:
-      - /etc/ssl:/etc/nginx/certs
+      - /etc/ssl/echo:/etc/nginx/certs
     networks:
       - echo_net
 
